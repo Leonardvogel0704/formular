@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Teilnehmerformular</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #e3ebf3, #f8fafc);
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    input:focus {
+      border-color: #2d6cdf;
+      outline: none;
+    }
+
+    button {
+      margin-top: 25px;
+      background: #2d6cdf;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #1f56b5;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #666;
+      margin-top: 3px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Teilnehmerdaten</h1>
+
+  <form action="https://n8n.srv1113516.hstgr.cloud/webhook/3b13021f-60d9-4e06-b6a2-a3acb9d6a797"POST">
+
+    <!-- Vorname -->
+    <label>Vorname</label>
+    <input type="text" name="vorname" required>
+
+    <!-- Nachname -->
+    <label>Nachname</label>
+    <input type="text" name="nachname" required>
+
+    <!-- Geburtsdatum -->
+    <label>Geburtsdatum</label>
+    <input type="date" name="geburtsdatum" required>
+
+    <!-- Fahrer (frei + Auswahl) -->
+    <label>Kann die Person Fahrer machen?</label>
+    <input list="fahrerOptionen" name="fahrer" required>
+    <datalist id="fahrerOptionen">
+      <option value="Ja">
+      <option value="Nein">
+      <option value="Notfalls">
+    </datalist>
+    <div class="hint">Auswählen oder selbst schreiben</div>
+
+    <!-- Getränkepauschale -->
+    <label>Alkohol-/Getränkepauschale</label>
+    <input list="pauschaleOptionen" name="getraenkepauschale" required>
+    <datalist id="pauschaleOptionen">
+      <option value="Keine Teilnahme">
+      <option value="Nur alkoholfrei">
+      <option value="Standard (Bier & Softdrinks)">
+      <option value="Premium (Cocktails & Longdrinks)">
+    </datalist>
+    <div class="hint">Du kannst auch eigene Varianten eintragen</div>
+
+    <!-- Ideen -->
+    <label>Ideen / Wünsche zur Getränkepauschale</label>
+    <input list="ideenOptionen" name="pauschalen_idee">
+    <datalist id="ideenOptionen">
+      <option value="Bier & Softdrinks">
+      <option value="Wein & Sekt">
+      <option value="Cocktails">
+      <option value="Longdrinks">
+      <option value="Alles inklusive">
+      <option value="Überraschung">
+    </datalist>
+
+    <button type="submit">Absenden</button>
+
+  </form>
+</div>
+
+</body>
+</html>
